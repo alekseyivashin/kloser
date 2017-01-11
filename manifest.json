@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Kloser",
+  "description": "Close all tabs and open default tab",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+	"default_title": "Kloser"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+		"matches": [],
+      "js": ["main.js"]
+    }
+	]
+}
