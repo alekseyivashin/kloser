@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Kloser",
     "description": "Close all tabs and open default tab",
-    "version": "1.0",
+    "version": "1.1",
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",
@@ -18,5 +18,16 @@
     },
     "permissions": [
         "tabs"
-    ]
+    ],
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Q",
+                "windows": "Ctrl+Q",
+                "mac": "Command+Q",
+                "chromeos": "Ctrl+Q",
+                "linux": "Ctrl+Q"
+            }
+        }
+    }
 }
