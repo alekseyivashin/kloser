@@ -1,0 +1,30 @@
+.container {
+    text-align: center;
+    padding: 10px;
+}
+
+.default-tab-caption {
+    font-size: 18px;
+}
+
+#default-tab {
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 5px;
+    border: 3px solid #646464;
+    height: 34px;
+    -webkit-appearance: none;
+}
+
+#save {
+    margin-top: 20px;
+    width: 50%;
+    background: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px solid #646464;
+    font-size: 18px;
+}

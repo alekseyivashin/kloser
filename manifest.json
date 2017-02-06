@@ -17,7 +17,8 @@
         ]
     },
     "permissions": [
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "commands": {
         "_execute_browser_action": {
@@ -29,5 +30,8 @@
                 "linux": "Ctrl+Q"
             }
         }
+    },
+    "options_ui": {
+        "page": "options/options.html"
     }
 }
