@@ -1,8 +1,19 @@
 function save_options() {
     var element = document.getElementById('default-tab');
     var option = element.options[element.selectedIndex].value;
+    var site = document.getElementById('site-input').value;
+    if (option == "chrome") {
+        site = "";
+    } else {
+        if (!isCorrectUrl(site)) {
+            document.getElementById('site-input').value = "";
+            document.getElementById('site-input').placeholder = "Please follow the pattern (www.google.com)";
+            return;
+        }
+    }
     chrome.storage.sync.set({
-        defaultTab: option
+        defaultTab: option,
+        site: site
     }, function () {
         var saveButton = document.getElementById('save');
         saveButton.style.background = "#c4ffd0";
@@ -14,9 +25,11 @@ function save_options() {
 
 function restore_options() {
     chrome.storage.sync.get({
-        defaultTab: "chrome"
+        defaultTab: "chrome",
+        site: ""
     }, function (items) {
         var element = document.getElementById('default-tab');
+        document.getElementById('site-input').value = items.site;
         var option = items.defaultTab;
         for (var i = 0; i < element.options.length; i++) {
             if (element.options[i].value === option) {
@@ -43,6 +56,13 @@ function changeSelectStatement() {
             input.style.display = "block";
             break;
     }
+}
+
+function isCorrectUrl(url) {
+    var expression = /^(www\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])$/i;
+    var regex = new RegExp(expression);
+
+    return url.match(regex);
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
