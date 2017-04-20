@@ -2,6 +2,7 @@ function save_options() {
     var element = document.getElementById('default-tab');
     var option = element.options[element.selectedIndex].value;
     var site = document.getElementById('site-input').value;
+    var closePinned = document.getElementById("close-pinned").checked;
     if (option == "chrome") {
         site = "";
     } else {
@@ -13,7 +14,8 @@ function save_options() {
     }
     chrome.storage.sync.set({
         defaultTab: option,
-        site: site
+        site: site,
+        closePinned: closePinned
     }, function () {
         var saveButton = document.getElementById('save');
         saveButton.style.background = "#c4ffd0";
@@ -26,10 +28,12 @@ function save_options() {
 function restore_options() {
     chrome.storage.sync.get({
         defaultTab: "chrome",
-        site: ""
+        site: "",
+        closePinned: false
     }, function (items) {
         var element = document.getElementById('default-tab');
         document.getElementById('site-input').value = items.site;
+        document.getElementById('close-pinned').checked = items.closePinned;
         var option = items.defaultTab;
         for (var i = 0; i < element.options.length; i++) {
             if (element.options[i].value === option) {
