@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Kloser",
     "description": "Close all tabs and open default tab",
-    "version": "2.0",
+    "version": "2.1",
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",
