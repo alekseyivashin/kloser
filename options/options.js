@@ -1,14 +1,14 @@
 function save_options() {
-    var element = document.getElementById('default-tab');
-    var option = element.options[element.selectedIndex].value;
-    var site = document.getElementById('site-input').value;
-    var closePinned = document.getElementById("close-pinned").checked;
-    if (option == "chrome") {
+    const element = document.getElementById('default-tab');
+    const option = element.options[element.selectedIndex].value;
+    let site = document.getElementById('site-input').value;
+    const closePinned = document.getElementById("close-pinned").checked;
+    if (option === "chrome") {
         site = "";
     } else {
         if (!isCorrectUrl(site)) {
             document.getElementById('site-input').value = "";
-            document.getElementById('site-input').placeholder = "Please follow the pattern (www.google.com)";
+            document.getElementById('site-input').placeholder = "Please follow the pattern (google.com)";
             return;
         }
     }
@@ -17,8 +17,8 @@ function save_options() {
         site: site,
         closePinned: closePinned
     }, function () {
-        var saveButton = document.getElementById('save');
-        saveButton.style.background = "#c4ffd0";
+        const saveButton = document.getElementById('save');
+        saveButton.style.background = "#e04f5f";
         setTimeout(function () {
             saveButton.style.background = "transparent";
         }, 1000);
@@ -31,11 +31,11 @@ function restore_options() {
         site: "",
         closePinned: false
     }, function (items) {
-        var element = document.getElementById('default-tab');
+        const element = document.getElementById('default-tab');
         document.getElementById('site-input').value = items.site;
         document.getElementById('close-pinned').checked = items.closePinned;
-        var option = items.defaultTab;
-        for (var i = 0; i < element.options.length; i++) {
+        const option = items.defaultTab;
+        for (let i = 0; i < element.options.length; i++) {
             if (element.options[i].value === option) {
                 element.selectedIndex = i;
                 break;
@@ -46,10 +46,10 @@ function restore_options() {
 }
 
 function changeSelectStatement() {
-    var element = document.getElementById("default-tab");
-    var option = element.options[element.selectedIndex].value;
-    var caption = document.getElementById("site-caption");
-    var input = document.getElementById("site-input");
+    const element = document.getElementById("default-tab");
+    const option = element.options[element.selectedIndex].value;
+    const caption = document.getElementById("site-caption");
+    const input = document.getElementById("site-input");
     switch (option) {
         case "chrome":
             caption.style.display = "none";
@@ -63,11 +63,9 @@ function changeSelectStatement() {
 }
 
 function isCorrectUrl(url) {
-    var expression = /^(www\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])$/i;
-    var regex = new RegExp(expression);
-
-    return url.match(regex);
+    const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g;
+    return url.match(new RegExp(expression));
 }
+
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+document.getElementById('save').addEventListener('click', save_options);

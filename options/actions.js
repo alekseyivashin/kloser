@@ -1,7 +1,7 @@
 document.getElementById("default-tab").addEventListener("change", function () {
-    var option = this.options[this.selectedIndex].value;
-    var caption = document.getElementById("site-caption");
-    var input = document.getElementById("site-input");
+    const option = this.options[this.selectedIndex].value;
+    const caption = document.getElementById("site-caption");
+    const input = document.getElementById("site-input");
     switch (option) {
         case "chrome":
             caption.style.display = "none";

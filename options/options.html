@@ -8,16 +8,27 @@
 
 <body>
 <div class="container">
-    <label for="default-tab" class="default-tab-caption">Default tab:</label>
-    <select id="default-tab">
-        <option value="chrome">Chrome default tab</option>
-        <option value="another">Another default tab</option>
-    </select>
-    <label for="site-input" id="site-caption">Enter the website address:</label>
-    <input type="text" id="site-input" placeholder="www.google.com">
-    <button id="save">Save</button>
-    <label for="close-pinned" id="close-pinned-caption">Close pinned tab?</label>
-    <input type="checkbox" id="close-pinned">
+    <div class="default-tab-container">
+        <label for="default-tab" class="default-tab-caption">Default tab:</label>
+        <select id="default-tab">
+            <option value="chrome">Chrome default tab</option>
+            <option value="another">Another default tab</option>
+        </select>
+    </div>
+    <div class="site-input-container">
+        <label for="site-input" id="site-caption">Enter the website address:</label>
+        <input type="text" id="site-input" placeholder="google.com">
+    </div>
+    <div class="footer">
+        <div class="close-pinned-container">
+            <label for="close-pinned" id="close-pinned-caption">Close pinned tab?</label>
+            <input type="checkbox" id="close-pinned">
+        </div>
+        <button id="save">Save</button>
+    </div>
+    <div class="icon-author">Icons made by <a href="https://www.alfredocreates.com" title="Alfredo Hernandez">Alfredo Hernandez</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
 </div>
 <script src="options.js"></script>
 <script src="actions.js"></script>

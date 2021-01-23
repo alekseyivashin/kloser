@@ -12,11 +12,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
                 }
             });
         });
-        if (items.site == "") {
+        if (items.site === "") {
             chrome.tabs.create({});
         } else {
-            var url = "http://" + items.site;
-            chrome.tabs.create({"url": url});
+            chrome.tabs.create({"url": items.site});
         }
     });
 
