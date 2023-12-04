@@ -3,6 +3,7 @@ function save_options() {
     const option = element.options[element.selectedIndex].value;
     let site = document.getElementById('site-input').value;
     const closePinned = document.getElementById("close-pinned").checked;
+    const groupOnly = document.getElementById("group-only").checked;
     if (option === "chrome") {
         site = "";
     } else {
@@ -15,7 +16,8 @@ function save_options() {
     chrome.storage.sync.set({
         defaultTab: option,
         site: site,
-        closePinned: closePinned
+        closePinned: closePinned,
+        groupOnly: groupOnly,
     }, function () {
         const saveButton = document.getElementById('save');
         saveButton.style.background = "#e04f5f";
@@ -29,11 +31,13 @@ function restore_options() {
     chrome.storage.sync.get({
         defaultTab: "chrome",
         site: "",
-        closePinned: false
+        closePinned: false,
+        groupOnly: true,
     }, function (items) {
         const element = document.getElementById('default-tab');
         document.getElementById('site-input').value = items.site;
         document.getElementById('close-pinned').checked = items.closePinned;
+        document.getElementById('group-only').checked = items.groupOnly;
         const option = items.defaultTab;
         for (let i = 0; i < element.options.length; i++) {
             if (element.options[i].value === option) {

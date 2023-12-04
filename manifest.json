@@ -1,39 +1,42 @@
 {
-    "manifest_version": 2,
-    "name": "Kloser",
-    "author": "Aleksey Ivashin",
-    "description": "Close all tabs and open default tab",
-    "version": "2.2",
-    "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-    },
-    "browser_action": {
-        "default_title": "Kloser"
-    },
-    "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
-    },
-    "permissions": [
-        "tabs",
-        "storage"
-    ],
-    "commands": {
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Ctrl+Q",
-                "windows": "Ctrl+Q",
-                "mac": "Command+Q",
-                "chromeos": "Ctrl+Q",
-                "linux": "Ctrl+Q"
-            }
-        }
-    },
-    "options_ui": {
-        "page": "options/options.html"
+  "manifest_version": 3,
+  "name": "Kloser",
+  "author": "Aleksey Ivashin",
+  "description": "Close all tabs and open default tab",
+  "version": "3.0",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Q",
+        "windows": "Ctrl+Q",
+        "mac": "Command+Q",
+        "chromeos": "Ctrl+Q",
+        "linux": "Ctrl+Q"
+      }
     }
+  },
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "action": {
+    "default_title": "Kloser",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_security_policy": {}
 }

@@ -53,24 +53,27 @@
 
 .footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-.close-pinned-container {
+.checkbox-container {
     display: flex;
     min-width: 200px;
-}
-
-#close-pinned-caption {
-    /*font-size: 18px;*/
+    margin-bottom: 10px;
 }
 
 #close-pinned {
     margin-left: 10px;
 }
 
+#group-only {
+    margin-left: 10px;
+}
+
 #save {
+    margin-top: 10px;
     font-size: 18px;
     width: 100%;
     background: transparent;
