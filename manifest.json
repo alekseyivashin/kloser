@@ -13,7 +13,6 @@
     "service_worker": "service_worker.js"
   },
   "permissions": [
-    "tabs",
     "storage"
   ],
   "commands": {
